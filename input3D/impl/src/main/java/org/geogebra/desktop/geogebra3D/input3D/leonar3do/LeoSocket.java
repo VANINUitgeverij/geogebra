@@ -16,7 +16,7 @@ import org.eclipse.jetty.websocket.client.ClientUpgradeRequest;
 import org.eclipse.jetty.websocket.client.WebSocketClient;
 
 
-@WebSocket(maxMessageSize = 64 * 1024)
+//@WebSocket(maxMessageSize = 64 * 1024)
 public class LeoSocket {
  
 	
