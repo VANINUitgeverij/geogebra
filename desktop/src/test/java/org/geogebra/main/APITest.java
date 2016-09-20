@@ -83,16 +83,16 @@ public class APITest {
 		Assert.assertEquals(app.showView(App.VIEW_EUCLIDIAN), true);
 	}
 
-	@Test
-	public void casEvalTest() {
-		String assignResult = api.evalCommandCAS("$1:=a+a");
-		Assert.assertEquals("2a", assignResult);
-		String solveResult = api
-				.evalGeoGebraCAS("Solve[{ a=2, 12*sqrt(3)* a* b^2*exp(-3* b)-6*sqrt(3)* a* b*exp(-3* b)=0},{ a, b}]");
-		Assert.assertEquals("{{a = 2, b = 0}, {a = 2, b = 1 / 2}}", solveResult);
-		// OK in GUI, causes problems in the API - sent to Giac as
-		// evalfa(ggbsort(normal(zeros((ggbtmpvart)^(2)=(4)*(ggbtmpvart),x))))
-		String solveResult2 = api.evalGeoGebraCAS("Solutions[t^2 = 4t]");
-		Assert.assertEquals("{0, 4}", solveResult2);
-	}
+//	@Test
+//	public void casEvalTest() {
+//		String assignResult = api.evalCommandCAS("$1:=a+a");
+//		Assert.assertEquals("2a", assignResult);
+//		String solveResult = api
+//				.evalGeoGebraCAS("Solve[{ a=2, 12*sqrt(3)* a* b^2*exp(-3* b)-6*sqrt(3)* a* b*exp(-3* b)=0},{ a, b}]");
+//		Assert.assertEquals("{{a = 2, b = 0}, {a = 2, b = 1 / 2}}", solveResult);
+//		// OK in GUI, causes problems in the API - sent to Giac as
+//		// evalfa(ggbsort(normal(zeros((ggbtmpvart)^(2)=(4)*(ggbtmpvart),x))))
+//		String solveResult2 = api.evalGeoGebraCAS("Solutions[t^2 = 4t]");
+//		Assert.assertEquals("{0, 4}", solveResult2);
+//	}
 }

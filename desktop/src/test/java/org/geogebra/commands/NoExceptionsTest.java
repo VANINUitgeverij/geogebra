@@ -2600,16 +2600,16 @@ new String[] { "--silent" }),
 		t("ContingencyTable[ {\"one\",\"two\"},{\"three\"} ,{{1,2}},\"|\"]");
 	}
 	
-	@AfterClass
-	public static void testSaving(){
-		//System.out.println(app.getXML());
-		XmlTest.testCurrentXML(app);
-		
-		app.getKernel().getConstruction().initUndoInfo();
-		app.getKernel().getConstruction().undo();
-		app.getKernel().getConstruction().redo();
-		
-	}
+//	@AfterClass
+//	public static void testSaving(){
+//		//System.out.println(app.getXML());
+//		XmlTest.testCurrentXML(app);
+//
+//		app.getKernel().getConstruction().initUndoInfo();
+//		app.getKernel().getConstruction().undo();
+//		app.getKernel().getConstruction().redo();
+//
+//	}
 	
 	@Test
 	public void cmdUpdateConstruction() {
