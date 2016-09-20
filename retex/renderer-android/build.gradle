@@ -16,7 +16,6 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
 group 'com.himamis.retex'
-version '0.1'
 
 publishing {
     publications {
