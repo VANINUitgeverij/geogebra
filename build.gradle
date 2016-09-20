@@ -20,7 +20,7 @@ allprojects {
 	apply plugin: 'maven'
 
 	group = 'geogebra'
-	version = '0.0.1-SNAPSHOT'
+	version = version
 
 }
 
@@ -66,6 +66,19 @@ subprojects {
 	tasks['eclipseJdt'].dependsOn(eclipseJdtPrepare)
 	tasks['cleanEclipse'].dependsOn(cleanEclipseJdtUi)
 	tasks['eclipse'].dependsOn(eclipseJdtPrepare, eclipseJdtUi, cleanEclipse)
+
+	uploadArchives {
+		repositories {
+			mavenDeployer {
+				snapshotRepository(id: 'diddit-snapshot', url: EBIT_NEXUS_DIDDIT_SNAPSHOT_URL) {
+					authentication(userName: EBIT_NEXUS_USER, password: EBIT_NEXUS_PASSWORD)
+				}
+				repository(id: 'diddit-release', url: EBIT_NEXUS_DIDDIT_RELEASE_URL) {
+					authentication(userName: EBIT_NEXUS_USER, password: EBIT_NEXUS_PASSWORD)
+				}
+			}
+		}
+	}
 }
 
 task wrapper(type: Wrapper) {
