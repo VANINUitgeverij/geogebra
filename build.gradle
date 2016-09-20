@@ -79,6 +79,8 @@ subprojects {
 			}
 		}
 	}
+
+	afterReleaseBuild.dependsOn uploadArchives
 }
 
 task wrapper(type: Wrapper) {
