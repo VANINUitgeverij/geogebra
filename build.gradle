@@ -1,5 +1,29 @@
 project.description = 'GeoGebra'
 
+
+
+buildscript {
+	repositories {
+		maven {
+			url 'https://plugins.gradle.org/m2/'
+		}
+	}
+	dependencies {
+		classpath 'net.researchgate:gradle-release:2.4.0'
+	}
+}
+
+apply plugin: 'net.researchgate.release'
+
+
+allprojects {
+	apply plugin: 'maven'
+
+	group = 'geogebra'
+	version = '0.0.1-SNAPSHOT'
+
+}
+
 subprojects {
 	apply plugin: 'eclipse'
 	apply plugin: 'java'
@@ -8,8 +32,12 @@ subprojects {
 		maven {
 			url 'http://dev.geogebra.org/maven2'
 		}
+		maven {
+			url 'https://plugins.gradle.org/m2/'
+		}
 		mavenCentral()
     }
+
 
 	eclipse.project {
 		natures 'org.springsource.ide.eclipse.gradle.core.nature'
@@ -70,3 +98,17 @@ ext.joglVersion = '2.2.0'
 // This is automatically updated when there is a new version of Giac out:
 ext.javaGiacVersion = '49076'
 // Please don't change this line since the automatism looks for exact match.
+
+
+task dist(dependsOn:':desktop:build') {
+
+}
+
+release {
+
+	git {
+		requireBranch = 'diddit'
+		pushToRemote = 'origin'
+	}
+
+}
