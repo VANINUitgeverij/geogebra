@@ -1,0 +1,5 @@
+.gradle
+build
+retex/editor-web/dist
+out
+classes
